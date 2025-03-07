@@ -1,0 +1,185 @@
+Started by an SCM change
+Obtained Jenkinsfile from git file:///home/submission1/a428-cicd-labs
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/submission1/a428-cicd-labs # timeout=10
+Fetching upstream changes from file:///home/submission1/a428-cicd-labs
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/submission1/a428-cicd-labs +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/react-app^{commit} # timeout=10
+Checking out Revision fd80cc272a7d289f5ee60edf53d686e910bd5204 (refs/remotes/origin/react-app)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f fd80cc272a7d289f5ee60edf53d686e910bd5204 # timeout=10
+Commit message: "Edit Jenkinsfile v5"
+ > git rev-list --no-walk dce1d47384e866c673491ee0e7b1a5ed676b40e8 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:16-buster-slim
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 4879d2f2cce0c5878eafd446fa63e6f85d9685ba7146ce120e39fc93fdcad1d3
+but /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti could not be found among []
+but /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti@tmp could not be found among []
+$ docker run -t -d -u 1000:1000 -p 3000:3000 -w /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti -v /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti:/var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti:rw,z -v /var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti@tmp:/var/jenkins_home/workspace/submission-cicd-pipeline-ihsanharimurti@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:16-buster-slim cat
+$ docker top 35d6cfc44b214f383348c1e783a1c3081d84dafecda6406e9820fa65ea7782db -eo pid,comm
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ npm install
+
+up to date, audited 1820 packages in 21s
+
+214 packages are looking for funding
+  run `npm fund` for details
+
+140 vulnerabilities (102 moderate, 31 high, 7 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ ./jenkins/scripts/test.sh
+The following "npm" command (if executed) installs the "cross-env"
+dependency into the local "node_modules" directory, which will ultimately
+be stored in the Jenkins home directory. As described in
+https://docs.npmjs.com/cli/install, the "--save-dev" flag causes the
+"cross-env" dependency to be installed as "devDependencies". For the
+purposes of this tutorial, this flag is not important. However, when
+installing this dependency, it would typically be done so using this
+flag. For a comprehensive explanation about "devDependencies", see
+https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies.
++ set +x
+The following "npm" command tests that your simple Node.js/React
+application renders satisfactorily. This command actually invokes the test
+runner Jest (https://facebook.github.io/jest/).
++ npm test
+
+> my-app@0.1.0 test
+> react-scripts test --env=jsdom
+
+PASS src/App.test.js
+  ✓ renders without crashing (22 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        3.824 s
+Ran all test suites.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Manual Approval)
+[Pipeline] input
+Lanjutkan ke tahap Deploy?(Klik "Proceed" untuk melanjutkan)
+Proceed or Abort
+Approved by Ihsan Harimurti
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
++ ./jenkins/scripts/deliver.sh
+The following "npm" command builds your Node.js/React application for
+production in the local "build" directory (i.e. within the
+"/var/jenkins_home/workspace/simple-node-js-react-app" directory),
+correctly bundles React in production mode and optimizes the build for
+the best performance.
++ npm run build
+
+> my-app@0.1.0 build
+> react-scripts build
+
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  41.35 KB  build/static/js/2.4df63e2f.chunk.js
+  1.14 KB   build/static/js/main.31d123de.chunk.js
+  772 B     build/static/js/runtime-main.65f670ca.js
+  279 B     build/static/css/main.31c7f1b8.chunk.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
++ set +x
+The following "npm" command runs your Node.js/React application in
+development mode and makes the application available for web browsing.
+The "npm start" command has a trailing ampersand so that the command runs
+as a background process (i.e. asynchronously). Otherwise, this command
+can pause running builds of CI/CD applications indefinitely. "npm start"
+is followed by another command that retrieves the process ID (PID) value
+of the previously run process (i.e. "npm start") and writes this value to
+the file ".pidfile".
++ sleep 1
++ npm start
+
+> my-app@0.1.0 start
+> react-scripts start
+
++ echo 151
++ set +x
+Now...
+Visit http://localhost:3000 to see your Node.js/React application in action.
+(This is why you specified the "args -p 3000:3000" parameter when you
+created your initial Pipeline as a Jenkinsfile.)
+[Pipeline] sh
++ sleep 60
+[Pipeline] sh
++ ./jenkins/scripts/kill.sh
+The following command terminates the "npm start" process using its PID
+(written to ".pidfile"), all of which were conducted when "deliver.sh"
+was executed.
++ cat .pidfile
++ kill 151
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+$ docker stop --time=1 35d6cfc44b214f383348c1e783a1c3081d84dafecda6406e9820fa65ea7782db
+$ docker rm -f --volumes 35d6cfc44b214f383348c1e783a1c3081d84dafecda6406e9820fa65ea7782db
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
