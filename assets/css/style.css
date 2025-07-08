@@ -2053,6 +2053,375 @@ textarea.form-input::-webkit-resizer {
 
 
 
+        body {
+            background-color: #1e1e1f;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .blog-post-item {
+            list-style: none;
+            margin: 20px 0;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #2a2a2b;
+            transition: all 0.3s ease;
+        }
+
+        .blog-post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(41, 163, 102, 0.1);
+            border-color: #29a366;
+        }
+
+        .blog-item-link {
+            display: block;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-banner-box {
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-banner-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item-link:hover .blog-banner-box img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .blog-category {
+            background: #29a366;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background: #29a366;
+            border-radius: 50%;
+            margin: 0 12px;
+        }
+
+        .h3 {
+            margin: 12px 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: white;
+        }
+
+        .blog-text {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+
+        .expand-indicator {
+            font-size: 13px;
+            color: #29a366;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .expand-indicator::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item-link:hover .expand-indicator::after {
+            transform: translateX(5px);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #2a2a2b;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            border: 1px solid #29a366;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 25px 30px 0;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: #29a366;
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(41, 163, 102, 0.1);
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: white;
+            padding-right: 50px;
+        }
+
+        .modal-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .modal-category {
+            background: #29a366;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Image Carousel */
+        .image-carousel {
+            margin: 0 30px 25px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(41, 163, 102, 0.8);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: #29a366;
+        }
+
+        .carousel-nav.prev {
+            left: 15px;
+        }
+
+        .carousel-nav.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #555;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #29a366;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            padding: 0 30px 30px;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+        }
+
+        .detail-section h4 {
+            color: #29a366;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .detail-section p {
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .detail-section ul {
+            color: #ccc;
+            line-height: 1.7;
+            padding-left: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 8px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(41, 163, 102, 0.2);
+            color: #29a366;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(41, 163, 102, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-card {
+                margin: 10px;
+                max-height: 95vh;
+            }
+
+            .modal-header {
+                padding: 20px 20px 0;
+            }
+
+            .modal-title {
+                font-size: 1.5em;
+                padding-right: 40px;
+            }
+
+            .modal-close {
+                top: 15px;
+                right: 20px;
+            }
+
+            .image-carousel {
+                margin: 0 20px 20px;
+            }
+
+            .modal-content {
+                padding: 0 20px 25px;
+            }
+
+            .carousel-container {
+                height: 250px;
+            }
+        }
 
 
 /**
