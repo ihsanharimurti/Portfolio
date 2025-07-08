@@ -74,7 +74,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:harimurti114@gmail.com" class="contact-link">harimurti114@gmail.com</a>
+              <a href="mailto:ihsan.harimurti.dev@gmail.com" class="contact-link">ihsan.harimurti.dev@gmail.com</a>
             </div>
 
           </li>
@@ -104,7 +104,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Semarang, Central Java, Indonesia</address>
+              <address>South Jakarta, Jakarta SCR, Indonesia</address>
             </div>
 
           </li>
@@ -595,10 +595,7 @@
 
 
 
-      <!--
-        - #Achievement
-      -->
-
+      <!--#Achievement -->
       <article class="achievement" data-page="achievement">
 
         <header>
@@ -610,21 +607,17 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="#">
-
+              <div class="blog-item-link" onclick="openModal('modal1')">
                 <figure class="blog-banner-box">
                   <img src="assets\images\Achievement\KKI 2024.jpg"
                     alt="KKI 2024 - ASV (Autonomous Surface Vessel) Division Finalist" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">Design</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Okt 27, 2024</time>
+                    <time datetime="2024-10-27">Okt 27, 2024</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">KKI 2024 - ASV Division Finalist</h3>
@@ -634,27 +627,23 @@
                     team leader, leading to a significant performance increase compared to previous years.
                   </p>
 
+                  <p class="expand-indicator">Lihat detail lengkap</p>
                 </div>
-
-              </a>
+              </div>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
-
+              <div class="blog-item-link" onclick="openModal('modal2')">
                 <figure class="blog-banner-box">
                   <img src="assets\images\Achievement\Maricon 2024.jpg"
                     alt="Marine Icone 2024 - Ship Design Competition Finalist" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">Ship Design</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 22, 2024</time>
+                    <time datetime="2024-02-22">Feb 22, 2024</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">Marine Icone 2024 - Ship Design Competition Finalist</h3>
@@ -664,27 +653,23 @@
                     ships, reaching the final round of the competition.
                   </p>
 
+                  <p class="expand-indicator">Lihat detail lengkap</p>
                 </div>
-
-              </a>
+              </div>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
-
+              <div class="blog-item-link" onclick="openModal('modal3')">
                 <figure class="blog-banner-box">
                   <img src="assets\images\Achievement\Anforcom 2023.png"
                     alt="Anforcom 2023 - Diponegoro UI/UX Competition Finalist" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">UI/UX Design</p>
-
                     <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Sept 30, 2023</time>
+                    <time datetime="2023-09-30">Sept 30, 2023</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">Anforcom 2023 - Diponegoro UI/UX Competition Finalist</h3>
@@ -694,17 +679,266 @@
                     UI/UX competition.
                   </p>
 
+                  <p class="expand-indicator">Lihat detail lengkap</p>
                 </div>
-
-              </a>
+              </div>
             </li>
-
 
           </ul>
 
-        </section>
+          <!-- Modal 1 - KKI 2024 -->
+          <div id="modal1" class="modal-overlay" onclick="closeModal('modal1')">
+            <div class="modal-card" onclick="event.stopPropagation()">
+              <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal1')">×</button>
+                <h2 class="modal-title">KKI 2024 - ASV Division Finalist</h2>
+                <div class="modal-meta">
+                  <span class="modal-category">Prototyping</span>
+                  <span>•</span>
+                  <time datetime="2024-10-27">Oktober 27, 2024</time>
+                </div>
+              </div>
 
+              <!-- Image Carousel -->
+              <div class="image-carousel">
+                <div class="carousel-container">
+                  <div class="carousel-slide active">
+                    <img src="assets\images\Achievement\KKI 2024.jpg" alt="ASV Main View">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets\images\Portfolio\at.jpg" alt="Navigation System">
+                  </div>
+                </div>
+
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                <button class="carousel-nav next" onclick="changeSlide(1)">›</button>
+
+                <div class="carousel-indicators">
+                  <span class="indicator active" onclick="currentSlide(1)"></span>
+                  <span class="indicator" onclick="currentSlide(2)"></span>
+                </div>
+              </div>
+
+              <div class="modal-content">
+                <div class="detail-section">
+                  <h4>🎯 Key Achievement</h4>
+                  <p>Selected as a <strong>Finalist in the ASV (Autonomous Surface Vessel) division</strong> at the
+                    Kontes Kapal Indonesia (KKI) 2024, showcasing innovation in autonomous navigation and system
+                    integration.</p>
+                </div>
+
+                <div class="detail-section">
+                  <h4>🚢 Developed Technologies</h4>
+                  <p>Developed an autonomous vessel equipped with:</p>
+                  <ul>
+                    <li><strong>Navigation System:</strong> A* pathfinding algorithm with obstacle avoidance</li>
+                    <li><strong>Computer Vision:</strong> Real-time object detection using YOLO and OpenCV</li>
+                    <li><strong>IoT Monitoring:</strong> Telemetry system using GPS and environmental sensors</li>
+                    <li><strong>Autonomous Control:</strong> PID-based movement control with manual override</li>
+                  </ul>
+
+                  <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Raspberry Pi</span>
+                    <span class="tech-tag">YOLO</span>
+                    <span class="tech-tag">GPS</span>
+                    <span class="tech-tag">IMU</span>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4>👥 Leadership & Team Management</h4>
+                  <p>Led a multidisciplinary team of 8 members, managing project coordination and technical integration
+                    across hardware and software domains.</p>
+                </div>
+
+                <div class="detail-section">
+                  <h4>📈 Impact & Performance</h4>
+                  <p>The vessel successfully navigated the competition track and overcame obstacle challenges, showing
+                    clear progress compared to the previous year’s results.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal 2 - Marine Icone 2024 -->
+          <div id="modal2" class="modal-overlay" onclick="closeModal('modal2')">
+            <div class="modal-card" onclick="event.stopPropagation()">
+              <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal2')">×</button>
+                <h2 class="modal-title">Marine Icone 2024 - Ship Design Competition Finalist</h2>
+                <div class="modal-meta">
+                  <span class="modal-category">Ship Design</span>
+                  <span>•</span>
+                  <time datetime="2024-02-22">Februari 22, 2024</time>
+                </div>
+              </div>
+
+              <!-- Image Carousel -->
+              <div class="image-carousel">
+                <div class="carousel-container">
+                  <div class="carousel-slide active">
+                    <img src="assets\images\Achievement\Maricon 2024.jpg" alt="Ship Design Main View">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="assets\images\Portfolio\at.jpg" alt="Parking System Design">
+                  </div>
+                </div>
+
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                <button class="carousel-nav next" onclick="changeSlide(1)">›</button>
+
+                <div class="carousel-indicators">
+                  <span class="indicator active" onclick="currentSlide(1)"></span>
+                  <span class="indicator" onclick="currentSlide(2)"></span>
+                </div>
+              </div>
+
+              <div class="modal-content">
+                <div class="detail-section">
+                  <h4>🎯 Key Achievement</h4>
+                  <p>Selected as a <strong>Finalist</strong> in the Marine Icone 2024 Ship Design Competition.
+                    Contributed to
+                    the development of a conceptual automatic parking system for vehicles on board ships.</p>
+                </div>
+
+                <div class="detail-section">
+                  <h4>🚗 Concept Overview</h4>
+                  <p>Proposed a high-level design for an Automated Vehicle Parking System in maritime environments,
+                    focusing
+                    on space limitations and operational constraints at sea:</p>
+                  <ul>
+                    <li><strong>Space Efficiency:</strong> Conceptual layout to maximize parking capacity</li>
+                    <li><strong>Guidance Concept:</strong> General idea of guidance system using proximity and visual
+                      cues
+                    </li>
+                    <li><strong>Safety Consideration:</strong> Basic ideas for multi-layer safety during maneuvering
+                    </li>
+                  </ul>
+
+                  <div class="tech-tags">
+                    <span class="tech-tag">Research</span>
+                    <span class="tech-tag">Concept Design</span>
+                    <span class="tech-tag">Maritime Environment</span>
+                    <span class="tech-tag">Space Optimization</span>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4>👥 Team Contribution</h4>
+                  <p>As a team member, contributed primarily to the early-stage ideation and research:</p>
+                  <ul>
+                    <li>Conducted benchmarking and literature review on shipboard vehicle systems</li>
+                    <li>Collaborated on drafting initial system concepts and identifying constraints</li>
+                    <li>Supported documentation and presentation material development</li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4>💡 Innovation Scope</h4>
+                  <p>The concept was kept general to match the scope of the competition. No implementation or detailed
+                    technical simulation was conducted.</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Modal 3 - Anforcom 2023 -->
+            <div id="modal3" class="modal-overlay" onclick="closeModal('modal3')">
+              <div class="modal-card" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                  <button class="modal-close" onclick="closeModal('modal3')">×</button>
+                  <h2 class="modal-title">Anforcom 2023 - Diponegoro UI/UX Competition Finalist</h2>
+                  <div class="modal-meta">
+                    <span class="modal-category">UI/UX Design</span>
+                    <span>•</span>
+                    <time datetime="2023-09-30">September 30, 2023</time>
+                  </div>
+                </div>
+
+                <!-- Image Carousel -->
+                <div class="image-carousel">
+                  <div class="carousel-container">
+                    <div class="carousel-slide active">
+                      <img src="assets\images\Achievement\Anforcom 2023.png" alt="UI/UX Design Main View">
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="assets\images\Portfolio\at.jpg" alt="Design Process">
+                    </div>
+                  </div>
+
+                  <button class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                  <button class="carousel-nav next" onclick="changeSlide(1)">›</button>
+
+                  <div class="carousel-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                  </div>
+                </div>
+
+                <div class="modal-content">
+                  <div class="detail-section">
+                    <h4>🎯 Key Achievement</h4>
+                    <p>Achieved position as a <strong>Top 5 Finalist</strong> in the UI/UX Design Competition at
+                      Anforcom
+                      2023, Diponegoro University. This accomplishment reflects strong capability in crafting intuitive
+                      user
+                      experiences and engaging interface designs.</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h4>🎨 Design Solution</h4>
+                    <p>Developed a comprehensive UI/UX solution focused on user-centered design and modern interface
+                      principles:</p>
+                    <ul>
+                      <li><strong>User Research:</strong> Conducted in-depth user research and persona development</li>
+                      <li><strong>Information Architecture:</strong> Created logical and user-friendly information
+                        structure
+                      </li>
+                      <li><strong>Visual Design:</strong> Applied modern aesthetics with a consistent design system</li>
+                      <li><strong>Interaction Design:</strong> Designed smooth transitions and intuitive user flows</li>
+                    </ul>
+
+                    <div class="tech-tags">
+                      <span class="tech-tag">Figma</span>
+                      <span class="tech-tag">Adobe XD</span>
+                      <span class="tech-tag">Prototyping</span>
+                      <span class="tech-tag">User Research</span>
+                      <span class="tech-tag">Design Systems</span>
+                    </div>
+                  </div>
+
+                  <div class="detail-section">
+                    <h4>👥 Team Contribution</h4>
+                    <p>As a design team member, actively contributed to various development stages:</p>
+                    <ul>
+                      <li>Conducted user research and competitive analysis</li>
+                      <li>Created iterative wireframes and prototypes</li>
+                      <li>Executed visual designs and built a design system</li>
+                      <li>Performed usability testing and design validation</li>
+                    </ul>
+                  </div>
+
+                  <div class="detail-section">
+                    <h4>💡 Design Highlights</h4>
+                    <ul>
+                      <li><strong>User Experience:</strong> Intuitive navigation with minimal learning curve</li>
+                      <li><strong>Accessibility:</strong> Inclusive and accessible design for all users</li>
+                      <li><strong>Performance:</strong> Optimized interface for fast loading and smooth interaction</li>
+                      <li><strong>Innovation:</strong> Creative solution balancing functionality and aesthetics</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </section>
       </article>
+
+
 
 
 
@@ -725,7 +959,7 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d157093.47860592598!2d110.38576294836906!3d-7.075600161922673!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4d3f0d024d%3A0x1e0432b9da5cb9f2!2sKota%20Semarang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1736265744083!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.03918566802!2d106.71967714545643!3d-6.284100102988102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b0b3%3A0x39a0d0fe47404d02!2sSouth%20Jakarta%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1751961761313!5m2!1sen!2sid"
               width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
